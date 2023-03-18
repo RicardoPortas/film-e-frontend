@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import NfTable from '../components/NfTable.js';
@@ -23,7 +22,7 @@ const NfsPage = (props) => {
         setTotalAmount(amountSum.toFixed(2).replace(".", ","));
       })
       .catch((err) => console.log(err));
-  }, [updateTrigger]); // reload data when updateTrigger changes
+  }, [updateTrigger, headers]); // reload data when updateTrigger or headers change
 
   const handleUpdate = (id, data) => {
     axios.put(`http://localhost:3001/nf/${id}`, data, { headers })
